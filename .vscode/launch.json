@@ -5,21 +5,46 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "flutter_code_test_dropdown_buttons",
-            "request": "launch",
-            "type": "dart"
-        },
-        {
-            "name": "flutter_code_test_dropdown_buttons (profile mode)",
+            "name": "dev",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile"
+            "flutterMode": "debug",
+            "program": "lib/main.dart",
+            "args": [
+                "--flavor",
+                "dev",
+                "--dart-define=flavor=dev",
+                "--dart-define=base_api_url=https://api.stagingcupid.com/api/v1",
+                "--dart-define=api_key=sA,{tzUD=]dHvYNBJ4xVZ3c=&zS%.UqVc{But?kc",
+            ]
         },
         {
-            "name": "flutter_code_test_dropdown_buttons (release mode)",
+            "name": "dev_profile",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "release"
+            "flutterMode": "profile",
+            "program": "lib/main.dart",
+            "args": [
+                "--flavor",
+                "dev",
+                "--dart-define=flavor=dev",
+                "--dart-define=base_api_url=https://api.stagingcupid.com/api/v1",
+                "--dart-define=api_key=sA,{tzUD=]dHvYNBJ4xVZ3c=&zS%.UqVc{But?kc",
+            ]
+        },
+        {
+            "name": "dev_release",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release",
+            "program": "lib/main.dart",
+            "args": [
+                "--flavor",
+                "dev",
+                "--dart-define=flavor=dev",
+                "--dart-define=base_api_url=https://api.stagingcupid.com/api/v1",
+                "--dart-define=api_key=sA,{tzUD=]dHvYNBJ4xVZ3c=&zS%.UqVc{But?kc",
+            ]
         }
     ]
 }

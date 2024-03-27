@@ -13,8 +13,11 @@ dependencies:
   dio: ^5.4.2
   flutter:
     sdk: flutter
+  flutter_hooks: ^0.20.5
   freezed_annotation: ^2.4.1
+  hooks_riverpod: ^2.4.10
   json_annotation: ^4.8.1
+  riverpod_annotation: ^2.3.4
   very_good_analysis: ^5.1.0
 
 dev_dependencies:
@@ -24,6 +27,7 @@ dev_dependencies:
     sdk: flutter
   freezed: ^2.4.7
   json_serializable: ^6.7.1
+  riverpod_generator: ^2.3.11
 
 flutter:
   uses-material-design: true
