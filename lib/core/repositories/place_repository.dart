@@ -4,5 +4,5 @@ import 'package:flutter_code_test_dropdown_buttons/models/data_models/state/stat
 abstract class PlaceRepository {
   Future<List<Country>> getCountries();
 
-  Future<List<State>> getStates();
+  Future<List<State>> getStates(String countryId);
 }
