@@ -31,7 +31,7 @@ class StatesDropdownMenuButton extends HookConsumerWidget {
       textStyle: TextStyle(
         color: isDropdownEnable ? Colors.black : Colors.grey,
       ),
-      leadingIcon: states.isLoading
+      trailingIcon: states.isLoading
           ? const Center(child: CircularProgressIndicator())
           : states.hasError
               ? const Icon(Icons.error)

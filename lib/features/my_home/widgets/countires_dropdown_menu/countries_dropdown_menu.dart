@@ -32,7 +32,7 @@ class CountriesDropdownMenuButton extends HookConsumerWidget {
       textStyle: TextStyle(
         color: isDropdownEnable ? Colors.black : Colors.grey,
       ),
-      leadingIcon: countries.isLoading
+      trailingIcon: countries.isLoading
           ? const Center(child: CircularProgressIndicator())
           : countries.hasError
               ? const Icon(Icons.error)
