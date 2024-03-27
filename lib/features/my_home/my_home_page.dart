@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_code_test_dropdown_buttons/features/my_home/widgets/countires_dropdown_menu/countries_dropdown_menu.dart';
+import 'package:flutter_code_test_dropdown_buttons/features/my_home/widgets/state_dropdown_menu/states_dropdown_menu.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class MyHomePage extends HookConsumerWidget {
@@ -12,16 +14,15 @@ class MyHomePage extends HookConsumerWidget {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('Hello, World!'),
-              ),
-            );
-          },
-          child: const Text('Show SnackBar'),
+      body: const Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CountriesDropdownMenuButton(),
+            SizedBox(height: 16),
+            StatesDropdownMenuButton(),
+            SizedBox(height: 16),
+          ],
         ),
       ),
     );
