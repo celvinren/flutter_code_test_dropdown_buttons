@@ -11,6 +11,7 @@ _$FlavorConfigImpl _$$FlavorConfigImplFromJson(Map<String, dynamic> json) =>
       flavor: $enumDecode(_$FlavorEnumMap, json['flavor']),
       baseApiUrl: json['baseApiUrl'] as String,
       apiKey: json['apiKey'] as String,
+      apiUserAgent: json['apiUserAgent'] as String,
     );
 
 Map<String, dynamic> _$$FlavorConfigImplToJson(_$FlavorConfigImpl instance) =>
@@ -18,6 +19,7 @@ Map<String, dynamic> _$$FlavorConfigImplToJson(_$FlavorConfigImpl instance) =>
       'flavor': _$FlavorEnumMap[instance.flavor]!,
       'baseApiUrl': instance.baseApiUrl,
       'apiKey': instance.apiKey,
+      'apiUserAgent': instance.apiUserAgent,
     };
 
 const _$FlavorEnumMap = {

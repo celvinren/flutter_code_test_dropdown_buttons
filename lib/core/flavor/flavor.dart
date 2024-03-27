@@ -31,6 +31,7 @@ class FlavorConfig with _$FlavorConfig {
     required Flavor flavor,
     required String baseApiUrl,
     required String apiKey,
+    required String apiUserAgent,
   }) = _FlavorConfig;
 
   factory FlavorConfig.fromJson(Map<String, dynamic> json) =>
