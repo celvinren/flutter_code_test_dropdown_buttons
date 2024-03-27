@@ -4,7 +4,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'place_repository.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 PlaceRepository placeRepository(PlaceRepositoryRef ref) {
   throw UnimplementedError('override PlaceRepository');
 }

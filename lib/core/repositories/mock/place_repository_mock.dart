@@ -1,8 +1,12 @@
 import 'package:flutter_code_test_dropdown_buttons/core/repositories/place_repository.dart';
 import 'package:flutter_code_test_dropdown_buttons/models/data_models/country/country.dart';
 import 'package:flutter_code_test_dropdown_buttons/models/data_models/state/state.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class PlaceRepositoryMock implements PlaceRepository {
+  PlaceRepositoryMock(this.ref);
+  final Ref ref;
+
   @override
   Future<List<Country>> getCountries() async {
     await Future<void>.delayed(const Duration(microseconds: 500));

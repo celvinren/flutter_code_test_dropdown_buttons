@@ -6,7 +6,7 @@ import 'package:flutter_code_test_dropdown_buttons/models/data_models/state/stat
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class PlaceRepositoryImpl implements PlaceRepository {
-  PlaceRepositoryImpl({required this.ref})
+  PlaceRepositoryImpl(this.ref)
       : _local = PlaceRepositoryLocal(ref),
         _remote = PlaceRepositoryRemote(ref);
 
