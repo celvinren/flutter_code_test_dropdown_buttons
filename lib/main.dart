@@ -1,17 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_code_test_dropdown_buttons/core/flavor/flavor_state.dart';
+import 'package:flutter_code_test_dropdown_buttons/core/repositories/impl/place_repository_impl.dart';
+import 'package:flutter_code_test_dropdown_buttons/core/repositories/mock/place_repository_mock.dart';
+import 'package:flutter_code_test_dropdown_buttons/core/repositories/place_repository.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+const _mockFlavor = 'devmock';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends HookConsumerWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    const flavor = String.fromEnvironment('flavor', defaultValue: _mockFlavor);
+    const isMockEnv = flavor == _mockFlavor;
+
     return ProviderScope(
+      overrides: [
+        placeRepositoryProvider.overrideWith(
+          isMockEnv ? PlaceRepositoryMock.new : PlaceRepositoryImpl.new,
+        ),
+      ],
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
