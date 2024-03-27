@@ -19,6 +19,20 @@
             ]
         },
         {
+            "name": "dev_mock",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "program": "lib/main.dart",
+            "args": [
+                "--flavor",
+                "devmock",
+                "--dart-define=flavor=devmock",
+                "--dart-define=base_api_url=https://api.stagingcupid.com/api/v1",
+                "--dart-define=api_key=sA,{tzUD=]dHvYNBJ4xVZ3c=&zS%.UqVc{But?kc",
+            ]
+        },
+        {
             "name": "dev_profile",
             "request": "launch",
             "type": "dart",
