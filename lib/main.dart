@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_code_test_dropdown_buttons/core/repositories/impl/place_repository_impl.dart';
 import 'package:flutter_code_test_dropdown_buttons/core/repositories/mock/place_repository_mock.dart';
 import 'package:flutter_code_test_dropdown_buttons/core/repositories/place_repository.dart';
+import 'package:flutter_code_test_dropdown_buttons/features/error_reporter/error_reporter.dart';
 import 'package:flutter_code_test_dropdown_buttons/features/my_home/my_home_page.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -31,7 +32,9 @@ class MyApp extends HookConsumerWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const MyHomePage(title: 'Flutter Demo Home Page'),
+        home: const ErrorReporterWrapper(
+          child: MyHomePage(title: 'Flutter Demo Home Page'),
+        ),
       ),
     );
   }
