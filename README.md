@@ -28,4 +28,4 @@ flutter pub add --dev build_runner freezed json_serializable
 flutter pub add hooks_riverpod riverpod_annotation flutter_hooks
 flutter pub add --dev riverpod_generator
 
-flutter pub run build_runner build --delete-conflicting-outputs
+flutter pub run build_runner watch --delete-conflicting-outputs

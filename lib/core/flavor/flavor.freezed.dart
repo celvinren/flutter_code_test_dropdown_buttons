@@ -23,6 +23,7 @@ mixin _$FlavorConfig {
   Flavor get flavor => throw _privateConstructorUsedError;
   String get baseApiUrl => throw _privateConstructorUsedError;
   String get apiKey => throw _privateConstructorUsedError;
+  String get apiUserAgent => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +37,8 @@ abstract class $FlavorConfigCopyWith<$Res> {
           FlavorConfig value, $Res Function(FlavorConfig) then) =
       _$FlavorConfigCopyWithImpl<$Res, FlavorConfig>;
   @useResult
-  $Res call({Flavor flavor, String baseApiUrl, String apiKey});
+  $Res call(
+      {Flavor flavor, String baseApiUrl, String apiKey, String apiUserAgent});
 }
 
 /// @nodoc
@@ -55,6 +57,7 @@ class _$FlavorConfigCopyWithImpl<$Res, $Val extends FlavorConfig>
     Object? flavor = null,
     Object? baseApiUrl = null,
     Object? apiKey = null,
+    Object? apiUserAgent = null,
   }) {
     return _then(_value.copyWith(
       flavor: null == flavor
@@ -69,6 +72,10 @@ class _$FlavorConfigCopyWithImpl<$Res, $Val extends FlavorConfig>
           ? _value.apiKey
           : apiKey // ignore: cast_nullable_to_non_nullable
               as String,
+      apiUserAgent: null == apiUserAgent
+          ? _value.apiUserAgent
+          : apiUserAgent // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -81,7 +88,8 @@ abstract class _$$FlavorConfigImplCopyWith<$Res>
       __$$FlavorConfigImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Flavor flavor, String baseApiUrl, String apiKey});
+  $Res call(
+      {Flavor flavor, String baseApiUrl, String apiKey, String apiUserAgent});
 }
 
 /// @nodoc
@@ -98,6 +106,7 @@ class __$$FlavorConfigImplCopyWithImpl<$Res>
     Object? flavor = null,
     Object? baseApiUrl = null,
     Object? apiKey = null,
+    Object? apiUserAgent = null,
   }) {
     return _then(_$FlavorConfigImpl(
       flavor: null == flavor
@@ -112,6 +121,10 @@ class __$$FlavorConfigImplCopyWithImpl<$Res>
           ? _value.apiKey
           : apiKey // ignore: cast_nullable_to_non_nullable
               as String,
+      apiUserAgent: null == apiUserAgent
+          ? _value.apiUserAgent
+          : apiUserAgent // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -120,7 +133,10 @@ class __$$FlavorConfigImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$FlavorConfigImpl implements _FlavorConfig {
   _$FlavorConfigImpl(
-      {required this.flavor, required this.baseApiUrl, required this.apiKey});
+      {required this.flavor,
+      required this.baseApiUrl,
+      required this.apiKey,
+      required this.apiUserAgent});
 
   factory _$FlavorConfigImpl.fromJson(Map<String, dynamic> json) =>
       _$$FlavorConfigImplFromJson(json);
@@ -131,10 +147,12 @@ class _$FlavorConfigImpl implements _FlavorConfig {
   final String baseApiUrl;
   @override
   final String apiKey;
+  @override
+  final String apiUserAgent;
 
   @override
   String toString() {
-    return 'FlavorConfig(flavor: $flavor, baseApiUrl: $baseApiUrl, apiKey: $apiKey)';
+    return 'FlavorConfig(flavor: $flavor, baseApiUrl: $baseApiUrl, apiKey: $apiKey, apiUserAgent: $apiUserAgent)';
   }
 
   @override
@@ -145,12 +163,15 @@ class _$FlavorConfigImpl implements _FlavorConfig {
             (identical(other.flavor, flavor) || other.flavor == flavor) &&
             (identical(other.baseApiUrl, baseApiUrl) ||
                 other.baseApiUrl == baseApiUrl) &&
-            (identical(other.apiKey, apiKey) || other.apiKey == apiKey));
+            (identical(other.apiKey, apiKey) || other.apiKey == apiKey) &&
+            (identical(other.apiUserAgent, apiUserAgent) ||
+                other.apiUserAgent == apiUserAgent));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, flavor, baseApiUrl, apiKey);
+  int get hashCode =>
+      Object.hash(runtimeType, flavor, baseApiUrl, apiKey, apiUserAgent);
 
   @JsonKey(ignore: true)
   @override
@@ -170,7 +191,8 @@ abstract class _FlavorConfig implements FlavorConfig {
   factory _FlavorConfig(
       {required final Flavor flavor,
       required final String baseApiUrl,
-      required final String apiKey}) = _$FlavorConfigImpl;
+      required final String apiKey,
+      required final String apiUserAgent}) = _$FlavorConfigImpl;
 
   factory _FlavorConfig.fromJson(Map<String, dynamic> json) =
       _$FlavorConfigImpl.fromJson;
@@ -181,6 +203,8 @@ abstract class _FlavorConfig implements FlavorConfig {
   String get baseApiUrl;
   @override
   String get apiKey;
+  @override
+  String get apiUserAgent;
   @override
   @JsonKey(ignore: true)
   _$$FlavorConfigImplCopyWith<_$FlavorConfigImpl> get copyWith =>

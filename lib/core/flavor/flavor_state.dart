@@ -11,5 +11,6 @@ FlavorConfig flavorConfig(FlavorConfigRef ref) {
     ),
     baseApiUrl: const String.fromEnvironment('base_api_url'),
     apiKey: const String.fromEnvironment('api_key'),
+    apiUserAgent: const String.fromEnvironment('api_user_agent'),
   );
 }
