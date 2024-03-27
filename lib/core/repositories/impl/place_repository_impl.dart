@@ -4,13 +4,6 @@ import 'package:flutter_code_test_dropdown_buttons/core/repositories/remote/plac
 import 'package:flutter_code_test_dropdown_buttons/models/data_models/country/country.dart';
 import 'package:flutter_code_test_dropdown_buttons/models/data_models/state/state.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
-
-part 'place_repository_impl.g.dart';
-
-@riverpod
-PlaceRepositoryImpl placeRepository(PlaceRepositoryRef ref) =>
-    PlaceRepositoryImpl(ref: ref);
 
 class PlaceRepositoryImpl implements PlaceRepository {
   PlaceRepositoryImpl({required this.ref})
@@ -33,7 +26,7 @@ class PlaceRepositoryImpl implements PlaceRepository {
   }
 
   @override
-  Future<List<State>> getStates(String countryId) async {
+  Future<List<State>> getStates(int countryId) async {
     try {
       final remoteData = await _remote.getStates(countryId);
       return remoteData;

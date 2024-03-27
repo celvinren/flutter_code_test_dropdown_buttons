@@ -22,7 +22,7 @@ class PlaceRepositoryRemote extends PlaceRepository {
   }
 
   @override
-  Future<List<State>> getStates(String countryId) async {
+  Future<List<State>> getStates(int countryId) async {
     final dio = ref.read(dioProvider);
     final result = await dio.get<List<dynamic>>('/countries/$countryId/states');
     final data = result.data;
