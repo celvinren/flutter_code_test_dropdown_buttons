@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_code_test_dropdown_buttons/features/my_home/widgets/countires_dropdown_menu/countries_dropdown_menu.dart';
 import 'package:flutter_code_test_dropdown_buttons/features/my_home/widgets/display_selected_result_widget/display_selected_result_widget.dart';
 import 'package:flutter_code_test_dropdown_buttons/features/my_home/widgets/state_dropdown_menu/states_dropdown_menu.dart';
+import 'package:flutter_code_test_dropdown_buttons/features/my_home/widgets/test_dialog/test_dialog.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class MyHomePage extends HookConsumerWidget {
@@ -15,16 +16,32 @@ class MyHomePage extends HookConsumerWidget {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: const Padding(
-        padding: EdgeInsets.all(20),
+      body: Padding(
+        padding: const EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CountriesDropdownMenuButton(),
-            SizedBox(height: 16),
-            StatesDropdownMenuButton(),
-            SizedBox(height: 16),
-            DisplaySelectedResultWidget(),
+            const CountriesDropdownMenuButton(),
+            const SizedBox(height: 16),
+            const StatesDropdownMenuButton(),
+            const SizedBox(height: 16),
+            const DisplaySelectedResultWidget(),
+            ElevatedButton(
+              onPressed: () {
+                showTestDialog(
+                  context,
+                  initValue: const TestDialogState(
+                    isMarried: true,
+                    firstName: 'Calvin',
+                  ),
+                  onResult: (result) async {
+                    await Future<void>.delayed(const Duration(seconds: 2));
+                    print('Result: $result');
+                  },
+                );
+              },
+              child: const Text('Test dialog'),
+            ),
           ],
         ),
       ),
