@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_code_test_dropdown_buttons/features/my_home/widgets/countires_dropdown_menu/countries_dropdown_menu_state.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -54,23 +55,33 @@ Future<void> showTestDialog(
   BuildContext context, {
   TestDialogState? initValue,
   Future<void> Function(TestDialogState)? onResult,
+  ProviderContainer? parentContainer,
 }) async {
   await showDialog<void>(
     context: context,
     builder: (context) {
-      return _Dialog(initValue, onResult: onResult);
+      return _Dialog(
+        initValue,
+        onResult: onResult,
+        parentContainer: parentContainer,
+      );
     },
   );
 }
 
 class _Dialog extends ConsumerWidget {
-  const _Dialog(this.initValue, {this.onResult});
+  const _Dialog(
+    this.initValue, {
+    this.onResult,
+    this.parentContainer,
+  });
   final TestDialogState? initValue;
   final Future<void> Function(TestDialogState)? onResult;
-
+  final ProviderContainer? parentContainer;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return ProviderScope(
+      parent: parentContainer,
       overrides: [
         initDialogStateProvider.overrideWithValue(
           initValue ?? const TestDialogState(),
@@ -89,6 +100,8 @@ class _Body extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final selectedCountry = ref.watch(selectedCountryProvider);
+
     return LayoutBuilder(
       builder: (context, constraints) {
         return SizedBox(
