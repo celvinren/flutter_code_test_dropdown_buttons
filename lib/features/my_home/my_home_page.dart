@@ -54,7 +54,7 @@ class _Body extends ConsumerWidget {
               onPressed: () {
                 showTestDialog(
                   context,
-                  // parentContainer: ProviderScope.containerOf(context),
+                  parentContainer: ProviderScope.containerOf(context),
                   initValue: const TestDialogState(
                     isMarried: true,
                     firstName: 'Calvin',
