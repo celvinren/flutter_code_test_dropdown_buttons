@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_code_test_dropdown_buttons/core/repositories/place_repository.dart';
 import 'package:flutter_code_test_dropdown_buttons/features/my_home/widgets/countires_dropdown_menu/countries_dropdown_menu_state.dart';
+import 'package:flutter_code_test_dropdown_buttons/models/data_models/state/state.dart'
+    as state_model;
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -101,6 +105,20 @@ class _Body extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final selectedCountry = ref.watch(selectedCountryProvider);
+    final placeRepository = ref.watch(placeRepositoryProvider);
+    final state = useState<List<state_model.State>>([]);
+    useEffect(
+      () {
+        Future<void> _fetch() async {
+          final states = await placeRepository.getStates(selectedCountry!.id);
+          state.value = states;
+        }
+
+        _fetch();
+        return null;
+      },
+      [],
+    );
 
     return LayoutBuilder(
       builder: (context, constraints) {
